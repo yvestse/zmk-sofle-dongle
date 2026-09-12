@@ -19,12 +19,13 @@
 };
 
 //重新配置 ZMK 内置的 hold_tap 行为
-&hold_tap {
+&mt {
     //关键：在内置行为中加入快速双击重发，单位毫秒
-    quick-tap-ms=<175>;
-
-    //如果想全局改变触发风味（如字母区的 tap-preferred）,也可以在这里改
-    //flavor="tap-preferred";
+    quick-tap-ms = <175>;
+};
+&lt {
+    //关键：在内置行为中加入快速双击重发，单位毫秒
+    quick-tap-ms = <175>;
 };
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
