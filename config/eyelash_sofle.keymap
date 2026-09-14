@@ -59,7 +59,16 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <200>;   // 直接写在这里
+            quick-tap-ms = <220>;   // 直接写在这里
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_probe: lt_probe {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <220>;
+            flavor = "tap-preferred";   // 注意这里，换成 tap-preferred
             bindings = <&mo>, <&kp>;
         };
     };
@@ -99,7 +108,7 @@
 &kp TAB        &kp Q     &kp W   &kp E     &kp R          &kp T          &kp DOWN_ARROW   &kp Y            &kp U      &kp I      &kp O    &kp P     &kp BSLH
 &mt LCTRL ESC  &kp A     &kp S   &kp D     &kp F          &kp G          &kp LEFT_ARROW   &kp H            &kp J      &kp K      &kp L    &kp SEMI  &mt RCTRL APOS
 &kp LSHFT      &kp Z     &kp X   &kp C     &kp V          &kp B          &kp RIGHT_ARROW  &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &mt RSHIFT ENTER
-&kp C_MUTE     &kp LGUI  &mo 3   &kp LGUI  &mt LALT HOME  &lt_test 1 SPACE    &kp ENTER        &lt 1 BACKSPACE  &lt 2 END  &kp RGUI   &mo 2    &kp RGUI
+&kp C_MUTE     &kp LGUI  &mo 3   &kp LGUI  &mt LALT HOME  &lt_probe 1 SPACE    &kp ENTER        &lt 1 BACKSPACE  &lt 2 END  &kp RGUI   &mo 2    &kp RGUI
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
