@@ -19,10 +19,8 @@
 };
 
 //重新配置 ZMK 内置的 hold_tap 行为
-&lt {
-    //关键：在内置行为中加入快速双击重发，单位毫秒
-    quick-tap-ms = <300>;
-};
+//&mt {quick-tap-ms = <220>;};
+//&lt {quick-tap-ms = <220>;};
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -55,6 +53,14 @@
             compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
             tap-ms = <0>;
+        };
+
+        lt_test: lt_test {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;   // 直接写在这里
+            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -93,7 +99,7 @@
 &kp TAB        &kp Q     &kp W   &kp E     &kp R          &kp T          &kp DOWN_ARROW   &kp Y            &kp U      &kp I      &kp O    &kp P     &kp BSLH
 &mt LCTRL ESC  &kp A     &kp S   &kp D     &kp F          &kp G          &kp LEFT_ARROW   &kp H            &kp J      &kp K      &kp L    &kp SEMI  &mt RCTRL APOS
 &kp LSHFT      &kp Z     &kp X   &kp C     &kp V          &kp B          &kp RIGHT_ARROW  &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &mt RSHIFT ENTER
-&kp C_MUTE     &kp LGUI  &mo 3   &kp LGUI  &mt LALT HOME  &lt 1 SPACE    &kp ENTER        &lt 1 BACKSPACE  &lt 2 END  &kp RGUI   &mo 2    &kp RGUI
+&kp C_MUTE     &kp LGUI  &mo 3   &kp LGUI  &mt LALT HOME  &lt_test 1 SPACE    &kp ENTER        &lt 1 BACKSPACE  &lt 2 END  &kp RGUI   &mo 2    &kp RGUI
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
