@@ -19,8 +19,8 @@
 };
 
 //重新配置 ZMK 内置的 hold_tap 行为
-&mt {quick-tap-ms = <200>;};
-&lt {quick-tap-ms = <200>;};
+&mt {quick-tap-ms = <230>;};
+&lt {quick-tap-ms = <230>;};
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
